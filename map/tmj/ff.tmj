@@ -120,7 +120,7 @@
         {
          "columns":20,
          "firstgid":1,
-         "image":"/static/map/png/ff_P.png",
+         "image":"https://yongsooim.github.io/fsba/map/png/ff_P.png",
          "imageheight":1056,
          "imagewidth":1280,
          "margin":0,
@@ -133,7 +133,7 @@
         {
          "columns":20,
          "firstgid":441,
-         "image":"/static/map/png/ff_S.png",
+         "image":"https://yongsooim.github.io/fsba/map/png/ff_S.png",
          "imageheight":1056,
          "imagewidth":1280,
          "margin":0,
