@@ -1,0 +1,14 @@
+{ "columns":20,
+ "image":"..\/png\/ff_P.png",
+ "imageheight":1056,
+ "imagewidth":1280,
+ "margin":0,
+ "name":"TileSetP",
+ "spacing":0,
+ "tilecount":440,
+ "tiledversion":"1.8.0",
+ "tileheight":48,
+ "tilewidth":64,
+ "type":"tileset",
+ "version":"1.8"
+}
