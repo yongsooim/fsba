@@ -109,7 +109,7 @@
          "x":0,
          "y":0,
          "z":255
-        }],
+       }],
  "nextlayerid":3,
  "nextobjectid":1,
  "orientation":"orthogonal",
@@ -133,7 +133,7 @@
         {
          "columns":20,
          "firstgid":441,
-         "image":"https://yongsooim.github.io/fsba/map/png/TFI0___S.png",
+         "image":"https://yongsooim.github.io/fsba/mapset/png/TFI0___S.png",
          "imageheight":1056,
          "imagewidth":1280,
          "margin":0,
