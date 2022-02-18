@@ -1,0 +1,15 @@
+{
+    "columns": 29,
+    "image": "../../mapset/png/T_loc0_P.png",
+    "imageheight": 21,
+    "imagewidth": 20,
+    "margin": 0,
+    "name": "TileSetP",
+    "spacing": 0,
+    "tilecount": 420,
+    "tiledversion": "1.8.1",
+    "tileheight": 48,
+    "tilewidth": 64,
+    "type": "tileset",
+    "version": "1.8"
+}

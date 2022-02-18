@@ -1,0 +1,15 @@
+{
+    "columns": 24,
+    "image": "../../mapset/png/Tma1___S.png",
+    "imageheight": 20,
+    "imagewidth": 14,
+    "margin": 0,
+    "name": "TileSetS",
+    "spacing": 0,
+    "tilecount": 280,
+    "tiledversion": "1.8.1",
+    "tileheight": 48,
+    "tilewidth": 64,
+    "type": "tileset",
+    "version": "1.8"
+}

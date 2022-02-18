@@ -1,0 +1,15 @@
+{
+    "columns": 14,
+    "image": "../../mapset/png/Tic1___P.png",
+    "imageheight": 8,
+    "imagewidth": 8,
+    "margin": 0,
+    "name": "TileSetP",
+    "spacing": 0,
+    "tilecount": 64,
+    "tiledversion": "1.8.1",
+    "tileheight": 48,
+    "tilewidth": 64,
+    "type": "tileset",
+    "version": "1.8"
+}

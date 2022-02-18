@@ -1,0 +1,15 @@
+{
+    "columns": 11,
+    "image": "../../mapset/png/Toi0_00P.png",
+    "imageheight": 16,
+    "imagewidth": 16,
+    "margin": 0,
+    "name": "TileSetP",
+    "spacing": 0,
+    "tilecount": 256,
+    "tiledversion": "1.8.1",
+    "tileheight": 48,
+    "tilewidth": 64,
+    "type": "tileset",
+    "version": "1.8"
+}

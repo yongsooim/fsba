@@ -9,7 +9,7 @@ const excelFile = xlsx.readFile( "mapinfo.xlsx" );
 
 //make output path if not exist
 if(!fs.existsSync('../../mapset/tmj'))
-    fs.mkdirSync('....//mapset/tmj');
+    fs.mkdirSync('../../mapset/tmj');
 
 if(!fs.existsSync('../../mapset/tsj'))
     fs.mkdirSync('../../mapset/tsj');
@@ -53,7 +53,6 @@ for(var i = 0 ; i < width * height ; i++){
     dataS.push((data.readUInt32LE(offset + i * 4 ) + 1 + width * height) )
 }
 
-console.log('map no.' + j);
 
 let outputJson = {
     "compressionlevel":0,
@@ -136,4 +135,7 @@ let outputJson = {
 fs.writeFileSync('../../mapset/tmj/' +j.toString().padStart(4, '0') + '_' + jsonData[j]['MAP파일'].slice(1) + '.tmj', JSON.stringify(outputJson, null, 4))
 fs.writeFileSync('../../mapset/tsj/' +jsonData[j]['PCX파일'].slice(1) + 'P.tsj', JSON.stringify(outputPTsj, null, 4))
 fs.writeFileSync('../../mapset/tsj/' +jsonData[j]['PCX파일'].slice(1) + 'S.tsj', JSON.stringify(outputSTsj, null, 4))
+
+console.log('map no.' + j + '  ../../mapset/tmj/' +j.toString().padStart(4, '0') + '_' + jsonData[j]['MAP파일'].slice(1) + '.tmj');
+
 }

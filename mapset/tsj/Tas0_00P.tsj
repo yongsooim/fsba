@@ -1,0 +1,15 @@
+{
+    "columns": 27,
+    "image": "../../mapset/png/Tas0_00P.png",
+    "imageheight": 13,
+    "imagewidth": 14,
+    "margin": 0,
+    "name": "TileSetP",
+    "spacing": 0,
+    "tilecount": 182,
+    "tiledversion": "1.8.1",
+    "tileheight": 48,
+    "tilewidth": 64,
+    "type": "tileset",
+    "version": "1.8"
+}

@@ -1,0 +1,15 @@
+{
+    "columns": 18,
+    "image": "../../mapset/png/Tsi0_00S.png",
+    "imageheight": 9,
+    "imagewidth": 10,
+    "margin": 0,
+    "name": "TileSetS",
+    "spacing": 0,
+    "tilecount": 90,
+    "tiledversion": "1.8.1",
+    "tileheight": 48,
+    "tilewidth": 64,
+    "type": "tileset",
+    "version": "1.8"
+}

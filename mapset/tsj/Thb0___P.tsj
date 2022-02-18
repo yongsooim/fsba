@@ -1,0 +1,15 @@
+{
+    "columns": 13,
+    "image": "../../mapset/png/Thb0___P.png",
+    "imageheight": 12,
+    "imagewidth": 11,
+    "margin": 0,
+    "name": "TileSetP",
+    "spacing": 0,
+    "tilecount": 132,
+    "tiledversion": "1.8.1",
+    "tileheight": 48,
+    "tilewidth": 64,
+    "type": "tileset",
+    "version": "1.8"
+}
