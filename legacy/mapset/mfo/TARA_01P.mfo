@@ -1,0 +1,64 @@
+//        "00112233445566778899aabb"
+mapname = "249                     "
+//                      x       y       z       d       act     link
+pcpos    0     =        13,     33,     0,      0,      0,      0            // 
+pcpos    1     =        13,     5,      0,      1,      0,      1            // 
+
+//                      m       pp      key     act     c0      c1      o0      o1	
+jmp      0     =        248,    1,      0,      2,      -1,     -1,     -1,     -1 	 
+jmp      1     =        250,    0,      0,      2,      -1,     -1,     -1,     -1 	 
+
+
+[ battleset 0 ]             
+battlearea = auto           
+partylevel = 100            
+escape = no	                
+player = auto               
+enemytype = 141, 147, 42, 136
+enemy = auto                
+[ battleset end ]           
+                            
+[ battleset 1 ]             
+battlearea = auto           
+partylevel = 100            
+escape = no	                
+player = auto               
+enemytype = 141, 147, 42, 136
+enemy = auto                
+[ battleset end ]           
+                            
+[ battleset 2 ]             
+battlearea = auto           
+partylevel = 100            
+escape = no	                
+player = auto               
+enemytype = 135, 144, 87, 75 
+enemy = auto                
+[ battleset end ]           
+                            
+[ battleset 3 ]             
+battlearea = auto           
+partylevel = 100            
+escape = no	                
+player = auto               
+enemytype = 135, 144, 87, 75 
+enemy = auto                
+[ battleset end ]           
+                            
+[ battleset 4 ]             
+battlearea = auto           
+partylevel = 100            
+escape = no	                
+player = auto               
+enemytype = 126, 129, 132,189
+enemy = auto                
+[ battleset end ]           
+                            
+[ battleset 5 ]             
+battlearea = auto           
+partylevel = 100            
+escape = no	                
+player = auto               
+enemytype = 126, 129, 132,189
+enemy = auto                
+[ battleset end ]           

@@ -1,0 +1,12 @@
+//        "00112233445566778899aabb"
+mapname = "359                     "
+//                      x       y       z       d       act     link
+pcpos    0     =        6,      11,     0,      0,      0,      0            // 
+pcpos    1     =        6,      4,      0,      1,      0,      1            // 
+
+[ battleset 0 ]
+[ battleset end ]
+
+//                      m       pp      key     act     c0      c1      o0      o1	
+jmp      0     =        358,    1,      0,      2,      -1,     -1,     -1,     -1 	 
+jmp      1     =        360,    0,      0,      2,      -1,     -1,     -1,     -1 	 

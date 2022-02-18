@@ -1,0 +1,45 @@
+//        "00112233445566778899aabb"
+mapname = "436                     "
+//                      x       y       z       d       act     link
+pcpos    0     =        11,     30,     0,      0,      0,      0            // 
+pcpos    1     =        11,     4,      0,      1,      0,      1            // 
+
+[ battleset 0 ]
+battlearea = auto
+partylevel = 100
+escape = yes		  
+player = auto
+enemytype = 149, 77, 74, -1
+enemy = auto
+[ battleset end ]
+
+// 
+
+[ battleset 1 ]
+battlearea = 2, 5, 20, 26
+partylevel = 100
+escape = no
+player 0 = 10, 17 , 0, 0						// MIRO	
+// player 1 = 12, 17 , 0, 0						// MASK
+
+enemytype = 1, -1, -1, -1
+enemy 0 = 1, 11, 11, 0, 1
+enemy 1 = 23, 10,  10, 0, 1
+enemy 2 = 23, 10,  10, 0, 1
+enemy 3 = 23, 10,  10, 0, 1
+enemy 4 = 23, 10,  10, 0, 1
+enemy 5 = 23, 10,  10, 0, 1
+enemy 6 = 23, 10,  10, 0, 1
+enemy 7 = 23, 10,  10, 0, 1
+enemy 8 = 23, 10,  10, 0, 1
+[ battleset end ]
+
+//                      m       pp      key     act     c0      c1      o0      o1	
+jmp      0     =        435,    1,      0,      2,      -1,     -1,     -1,     -1 	 
+jmp      1     =        457,    0,      0,      5,      -1,     -1,     -1,     -1 	 
+
+// ¹°
+anime 0 = 0, 2, -1, 15, 98, 138
+anime 1 = 0, 2, -1, 15, 99, 139
+anime 2 = 0, 2, -1, 15, 118, 158
+anime 3 = 0, 2, -1, 15, 119, 159

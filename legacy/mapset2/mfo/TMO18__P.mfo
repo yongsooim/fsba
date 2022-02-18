@@ -1,0 +1,29 @@
+//        "00112233445566778899aabb"
+mapname = "435                     "
+//                      x       y       z       d       act     link
+pcpos    0     =        3,      30,     0,      0,      0,      0            // 
+pcpos    1     =        35,     2,      0,      1,      0,      1            // 
+pcpos    2     =        38,     17,     0,      2,      0,      2            // 
+
+[ battleset 0 ]
+battlearea = auto
+partylevel = 100
+escape = yes		  
+player = auto
+enemytype = 26, 29, 124, 74
+enemy = auto
+
+[ battleset end ]
+
+//                      m       pp      key     act     c0      c1      o0      o1	
+jmp      0     =        434,    1,      0,      2,      -1,     -1,     -1,     -1 	 
+jmp      1     =        436,    0,      0,      2,      -1,     -1,     -1,     -1 	 
+jmp      2     =        456,    1,      0,      2,      -1,     -1,     -1,     -1 	 
+
+// È¶ºÒ
+anime 0 = 0, 3, -1, 6, 200, 201, 202
+anime 1 = 0, 3, -1, 6, 201, 202 ,200
+anime 2 = 0, 3, -1, 6, 202 ,200 ,201
+anime 3 = 0, 3, -1, 6, 220 ,221 ,222
+anime 4 = 0, 3, -1, 6, 221 ,222 ,220
+anime 5 = 0, 3, -1, 6, 222 ,220 ,221

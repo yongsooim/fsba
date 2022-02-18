@@ -1,0 +1,69 @@
+//        "00112233445566778899aabb"
+mapname = "190                     "
+//                      x       y       z       d       act     link
+pcpos    0     =        13,     33,     0,      0,      0,      0            // 
+pcpos    1     =        13,      5,     0,      1,      0,      1            // 
+
+//                      m       pp      key     act     c0      c1      o0      o1	
+jmp      0     =        189,    1,      0,      2,      -1,     -1,     -1,     -1 	 
+jmp      1     =        191,    0,      0,      2,      -1,     -1,     -1,     -1 	 
+
+[ battleset 0 ]
+battlearea = auto
+partylevel = 100
+escape = no	  
+player = auto
+enemytype = 54, 108, 84, 81  
+enemy = auto
+[ battleset end ]
+
+[ battleset 1 ]
+battlearea = auto
+partylevel = 100
+escape = no	  
+player = auto
+enemytype = 169,172,111,186 
+enemy = auto
+[ battleset end ]
+
+[ battleset 2 ]
+battlearea = auto
+partylevel = 100
+escape = no	  
+player = auto
+enemytype = 51, 118, 90, 105 
+enemy = auto
+[ battleset end ]
+
+[ battleset 3 ]
+battlearea = auto
+partylevel = 100
+escape = no	  
+player = auto
+enemytype = 131,146, 60, 72  
+enemy = auto
+[ battleset end ]
+
+[ battleset 4 ]
+battlearea = auto
+partylevel = 100
+escape = no	  
+player = auto
+enemytype = 36, 159, 127,168 
+enemy = auto
+[ battleset end ]
+
+[ battleset 5 ]
+battlearea = auto
+partylevel = 100
+escape = no	  
+player = auto
+enemytype = 69, 120, 166,45  
+enemy = auto
+[ battleset end ]
+
+
+
+
+
+

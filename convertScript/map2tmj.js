@@ -18,23 +18,25 @@ const jsonData = xlsx.utils.sheet_to_json( firstSheet, { defval : "" } );
 
 const offset = 0x1E0 // data 까지의 byte offset
 
-for(let j = 0 ; j < 490 ; j++){
+for(let j = 0 ; j < 500 ; j++){
 let legacyMapPathP = '../Legacy/mapset/map/' + jsonData[j]['MAP파일'].slice(1) + 'P.map'
 let tilesetSourceP = '../Legacy/mapset/png/' + jsonData[j]['PCX파일'].slice(1) + 'P.png'
 let tilesetSourceS = '../Legacy/mapset/png/' + jsonData[j]['PCX파일'].slice(1) + 'S.png'
 
 let data
+
 try{
     data = Buffer.from(fs.readFileSync(legacyMapPathP))
 } catch{
+    console.log(legacyMapPathP + ' not found')
     continue
 }
 
 let width = data.readInt32LE(24)
 let height = data.readInt32LE(28)
 
-let tilessetWidth = data.readInt32LE(32)
-let tilessetHeight = data.readInt32LE(36)
+let imageWidth = data.readInt32LE(32)
+let imageHeight = data.readInt32LE(36)
 
 let dataP = []
 let dataS = []
@@ -92,17 +94,15 @@ let outputJson = {
         }]
 }
 
-//let tilesetSourceP = '../Legacy/mapset/png/' + jsonData[j]['PCX파일'].slice(1) + 'P.png'
-
     let outputPTsj = 
     { "columns":width,
     "image": tilesetSourceP,
-    "imageheight": tilessetHeight,
-    "imagewidth": tilessetWidth,
+    "imageheight": imageHeight,
+    "imagewidth": imageWidth,
     "margin":0,
     "name":"TileSetP",
     "spacing":0,
-    "tilecount":tilessetHeight * tilessetWidth,
+    "tilecount":imageHeight * imageWidth,
     "tiledversion":"1.8.1",
     "tileheight":48,
     "tilewidth":64,
@@ -113,12 +113,12 @@ let outputJson = {
     let outputSTsj = 
     { "columns":width,
     "image": tilesetSourceS,
-    "imageheight": tilessetHeight,
-    "imagewidth": tilessetWidth,
+    "imageheight": imageHeight,
+    "imagewidth": imageWidth,
     "margin":0,
     "name":"TileSetS",
     "spacing":0,
-    "tilecount":tilessetHeight * tilessetWidth,
+    "tilecount":imageHeight * imageWidth,
     "tiledversion":"1.8.1",
     "tileheight":48,
     "tilewidth":64,

@@ -1,0 +1,18 @@
+//        "                        "
+mapname = "     їА За »к           "
+//			x	y	z	d	act	link
+pcpos	0	=	24,	16,	0,	2,	0,	0			// 
+pcpos	1	=	9,	3,	0,	1,	0,	1			// 
+
+[ battleset 0 ]
+battlearea = auto
+partylevel = 100
+escape = yes		  
+player = auto
+enemytype = 189, 126, 129, -1
+enemy = auto
+[ battleset end ]
+
+//				m	pp	key	act	c0	c1	o0	o1	
+jmp		0	=	42,	0,	0,	0,	-1,	-1,	-1,	-1 	 
+jmp		1	=	40,	1,	0,	0,	-1,	-1,	-1,	-1 	 
