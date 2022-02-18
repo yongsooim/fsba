@@ -42,15 +42,15 @@ try{
 let width = data.readInt32LE(24)
 let height = data.readInt32LE(28)
 
-let imageWidth = data.readInt32LE(32)
-let imageHeight = data.readInt32LE(36)
+let tilesetWidth = data.readInt32LE(32)
+let tileHeight = data.readInt32LE(36)
 
 let dataP = []
 let dataS = []
 
 for(var i = 0 ; i < width * height ; i++){
     dataP.push((data.readUInt32LE(offset + i * 4 ) + 1) )  // 타일 번호 1부터 시작이라 1 더해줘야함
-    dataS.push((data.readUInt32LE(offset + i * 4 ) + 1 + width * height) )
+    dataS.push((data.readUInt32LE(offset + i * 4 ) + 1 + tileHeight * tilesetWidth) )
 }
 
 
@@ -95,7 +95,7 @@ let outputJson = {
             "source": '../tsj/' + jsonData[j]['PCX파일'].slice(1) + 'P.tsj'
         }, 
         {
-            "firstgid":((width *height) + 1),
+            "firstgid":((tileHeight * tilesetWidth) + 1),
             "source": '../tsj/'+ jsonData[j]['PCX파일'].slice(1) + 'S.tsj'
         }]
 }
@@ -103,12 +103,12 @@ let outputJson = {
     let outputPTsj = 
     { "columns":width,
     "image": tilesetSourceP,
-    "imageheight": imageHeight,
-    "imagewidth": imageWidth,
+    "imageheight": tileHeight * 48,
+    "imagewidth": tilesetWidth * 64,
     "margin":0,
     "name":"TileSetP",
     "spacing":0,
-    "tilecount":imageHeight * imageWidth,
+    "tilecount":tileHeight * tilesetWidth,
     "tiledversion":"1.8.1",
     "tileheight":48,
     "tilewidth":64,
@@ -119,12 +119,12 @@ let outputJson = {
     let outputSTsj = 
     { "columns":width,
     "image": tilesetSourceS,
-    "imageheight": imageHeight,
-    "imagewidth": imageWidth,
+    "imageheight": tileHeight,
+    "imagewidth": tilesetWidth,
     "margin":0,
     "name":"TileSetS",
     "spacing":0,
-    "tilecount":imageHeight * imageWidth,
+    "tilecount":tileHeight * tilesetWidth,
     "tiledversion":"1.8.1",
     "tileheight":48,
     "tilewidth":64,
