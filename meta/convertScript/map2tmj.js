@@ -87,7 +87,8 @@ let outputJson = {
          "width":width,
          "height":height,
          "x":0,
-         "y":0
+         "y":0,
+         "z":100
         }],
     "tilesets":[
         {
@@ -146,5 +147,8 @@ let outputJson = {
     }
 
 console.log('map no.' + j + '  ../../mapset/tmj/' +j.toString().padStart(4, '0') + '_' + jsonData[j]['MAP파일'].slice(1) + '.tmj');
+
+
+fs.appendFileSync('maplist.txt', j.toString().padStart(4, '0') + '_' + jsonData[j]['MAP파일'].slice(1) + '.tmj' + '\n')
 
 }
