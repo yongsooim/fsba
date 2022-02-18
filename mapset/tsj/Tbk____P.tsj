@@ -1,15 +1,1 @@
-{
-    "columns": 20,
-    "image": "../../mapset/png/Tbk____P.png",
-    "imageheight": 1,
-    "imagewidth": 2,
-    "margin": 0,
-    "name": "TileSetP",
-    "spacing": 0,
-    "tilecount": 2,
-    "tiledversion": "1.8.1",
-    "tileheight": 48,
-    "tilewidth": 64,
-    "type": "tileset",
-    "version": "1.8"
-}
+{"columns":20,"image":"../../mapset/png/Tbk____P.png","imageheight":1,"imagewidth":2,"margin":0,"name":"TileSetP","spacing":0,"tilecount":2,"tiledversion":"1.8.1","tileheight":48,"tilewidth":64,"type":"tileset","version":"1.8"}

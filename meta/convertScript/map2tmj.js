@@ -132,9 +132,16 @@ let outputJson = {
     "version":"1.8"
     }
 
+/* for human readable
 fs.writeFileSync('../../mapset/tmj/' +j.toString().padStart(4, '0') + '_' + jsonData[j]['MAP파일'].slice(1) + '.tmj', JSON.stringify(outputJson, null, 4))
 fs.writeFileSync('../../mapset/tsj/' +jsonData[j]['PCX파일'].slice(1) + 'P.tsj', JSON.stringify(outputPTsj, null, 4))
 fs.writeFileSync('../../mapset/tsj/' +jsonData[j]['PCX파일'].slice(1) + 'S.tsj', JSON.stringify(outputSTsj, null, 4))
+*/
+
+fs.writeFileSync('../../mapset/tmj/' +j.toString().padStart(4, '0') + '_' + jsonData[j]['MAP파일'].slice(1) + '.tmj', JSON.stringify(outputJson))
+fs.writeFileSync('../../mapset/tsj/' +jsonData[j]['PCX파일'].slice(1) + 'P.tsj', JSON.stringify(outputPTsj))
+fs.writeFileSync('../../mapset/tsj/' +jsonData[j]['PCX파일'].slice(1) + 'S.tsj', JSON.stringify(outputSTsj))
+
 
 console.log('map no.' + j + '  ../../mapset/tmj/' +j.toString().padStart(4, '0') + '_' + jsonData[j]['MAP파일'].slice(1) + '.tmj');
 
