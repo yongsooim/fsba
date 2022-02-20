@@ -130,7 +130,7 @@ let outputJson = {
     "imageheight": tilesetHeight * 48,
     "imagewidth": tilesetWidth * 64,
     "margin":0,
-    "name":jsonData[j]['PCX파일'].slice(1) + 'P',
+    "name":jsonData[j]['PCX파일'].slice(1)+ 'S',
     "spacing":0,
     "tilecount":tilesetHeight * tilesetWidth,
     "tiledversion":"1.8.1",
@@ -139,7 +139,6 @@ let outputJson = {
     "type":"tileset",
     "version":"1.8"
     }
-
     let humanRead = false
 
      if(humanRead){
