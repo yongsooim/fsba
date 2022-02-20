@@ -43,14 +43,20 @@ let width = data.readInt32LE(24)
 let height = data.readInt32LE(28)
 
 let tilesetWidth = data.readInt32LE(32)
-let tileHeight = data.readInt32LE(36)
+let tilesetHeight = data.readInt32LE(36)
+
+
+
+if(jsonData[j]['PCX파일'].slice(1) == 'Tts0___'){  // 바이너리가 잘못된 건지, column 수랑 실제 png랑 달라서 강제로 20으로 써줌
+    tilesetWidth = 20
+}
 
 let dataP = []
 let dataS = []
 
 for(var i = 0 ; i < width * height ; i++){
     dataP.push((data.readUInt32LE(offset + i * 4 ) + 1) )  // 타일 번호 1부터 시작이라 1 더해줘야함
-    dataS.push((data.readUInt32LE(offset + i * 4 ) + 1 + tileHeight * tilesetWidth) )
+    dataS.push((data.readUInt32LE(offset + i * 4 ) + 1 + tilesetHeight * tilesetWidth) )
 }
 
 
@@ -96,20 +102,20 @@ let outputJson = {
             "source": '../tsj/' + jsonData[j]['PCX파일'].slice(1) + 'P.tsj'
         }, 
         {
-            "firstgid":((tileHeight * tilesetWidth) + 1),
+            "firstgid":((tilesetHeight * tilesetWidth) + 1),
             "source": '../tsj/'+ jsonData[j]['PCX파일'].slice(1) + 'S.tsj'
         }]
 }
 
     let outputPTsj = 
-    { "columns":width,
+    { "columns":tilesetWidth,
     "image": tilesetSourceP,
-    "imageheight": tileHeight * 48,
+    "imageheight": tilesetHeight * 48,
     "imagewidth": tilesetWidth * 64,
     "margin":0,
-    "name":"TileSetP",
+    "name":jsonData[j]['PCX파일'].slice(1)+ 'P',
     "spacing":0,
-    "tilecount":tileHeight * tilesetWidth,
+    "tilecount":tilesetHeight * tilesetWidth,
     "tiledversion":"1.8.1",
     "tileheight":48,
     "tilewidth":64,
@@ -118,14 +124,14 @@ let outputJson = {
     }
 
     let outputSTsj = 
-    { "columns":width,
+    { "columns":tilesetWidth,
     "image": tilesetSourceS,
-    "imageheight": tileHeight,
-    "imagewidth": tilesetWidth,
+    "imageheight": tilesetHeight * 48,
+    "imagewidth": tilesetWidth * 64,
     "margin":0,
-    "name":"TileSetS",
+    "name":jsonData[j]['PCX파일'].slice(1) + 'P',
     "spacing":0,
-    "tilecount":tileHeight * tilesetWidth,
+    "tilecount":tilesetHeight * tilesetWidth,
     "tiledversion":"1.8.1",
     "tileheight":48,
     "tilewidth":64,

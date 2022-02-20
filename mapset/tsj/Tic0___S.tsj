@@ -1,1 +1,1 @@
-{"columns":16,"image":"../../mapset/png/Tic0___S.png","imageheight":10,"imagewidth":12,"margin":0,"name":"TileSetS","spacing":0,"tilecount":120,"tiledversion":"1.8.1","tileheight":48,"tilewidth":64,"type":"tileset","version":"1.8"}
+{"columns":12,"image":"../../mapset/png/Tic0___S.png","imageheight":480,"imagewidth":768,"margin":0,"name":"Tic0___P","spacing":0,"tilecount":120,"tiledversion":"1.8.1","tileheight":48,"tilewidth":64,"type":"tileset","version":"1.8"}

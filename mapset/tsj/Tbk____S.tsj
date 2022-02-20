@@ -1,1 +1,1 @@
-{"columns":20,"image":"../../mapset/png/Tbk____S.png","imageheight":1,"imagewidth":2,"margin":0,"name":"TileSetS","spacing":0,"tilecount":2,"tiledversion":"1.8.1","tileheight":48,"tilewidth":64,"type":"tileset","version":"1.8"}
+{"columns":2,"image":"../../mapset/png/Tbk____S.png","imageheight":48,"imagewidth":128,"margin":0,"name":"Tbk____P","spacing":0,"tilecount":2,"tiledversion":"1.8.1","tileheight":48,"tilewidth":64,"type":"tileset","version":"1.8"}
