@@ -49,6 +49,7 @@ let tilesetHeight = data.readInt32LE(36)
 
 if(jsonData[j]['PCX파일'].slice(1) == 'Tts0___'){  // 바이너리가 잘못된 건지, column 수랑 실제 png랑 달라서 강제로 20으로 써줌
     tilesetWidth = 20
+    tilesetHeight = 21
 }
 
 let dataP = []
