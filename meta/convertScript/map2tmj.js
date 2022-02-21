@@ -46,10 +46,16 @@ let tilesetWidth = data.readInt32LE(32)
 let tilesetHeight = data.readInt32LE(36)
 
 
-
-if(jsonData[j]['PCX파일'].slice(1) == 'Tts0___'){  // 바이너리가 잘못된 건지, column 수랑 실제 png랑 달라서 강제로 20으로 써줌
+ // 바이너리가 실제 이미지랑 크기 안맞는 것들 예외처리해서 강제로 맞춰줌
+if(jsonData[j]['PCX파일'].slice(1) == 'Tts0___'){ 
     tilesetWidth = 20
     tilesetHeight = 21
+} else if(jsonData[j]['PCX파일'].slice(1) == 'Tiv1___' ){
+    tilesetWidth = 16
+    tilesetHeight = 11
+} else if(jsonData[j]['PCX파일'].slice(1) == 'Tiv0___' ){
+    tilesetWidth = 19
+    tilesetHeight = 16
 }
 
 let dataP = []
@@ -86,7 +92,7 @@ let outputJson = {
         }, 
         {
          "data": dataS,
-         "id":1,
+         "id":2,
          "name":"S Layer",
          "opacity":1,
          "type":"tilelayer",
