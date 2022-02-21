@@ -100,8 +100,7 @@ let outputJson = {
          "width":width,
          "height":height,
          "x":0,
-         "y":0,
-         "z":100
+         "y":0
         }],
     "tilesets":[
         {
