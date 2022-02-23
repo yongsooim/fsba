@@ -25,7 +25,9 @@ const jsonData = xlsx.utils.sheet_to_json( firstSheet, { defval : "" } );
 
 const offset = 0x1E0 // data 까지의 byte offset
 
-for(let j = 0 ; j < 500 ; j++){
+let j = 0
+
+for(j = 0 ; j < 500 ; j++){
 let legacyMapPathP = '../legacy/mapset/map/' + jsonData[j]['MAP파일'].slice(1) + 'P.map'
 let tilesetSourceP = '../../mapset/png/' + jsonData[j]['PCX파일'].slice(1) + 'P.png'
 let tilesetSourceS = '../../mapset/png/' + jsonData[j]['PCX파일'].slice(1) + 'S.png'
@@ -39,23 +41,33 @@ try{
     continue
 }
 
-let width = data.readInt32LE(24)
-let height = data.readInt32LE(28)
-
-let tilesetWidth = data.readInt32LE(32)
-let tilesetHeight = data.readInt32LE(36)
+// .map 파일로부터 맵 크기 읽기
+let width = data.readInt32LE(24)    // map 헤더 읽기
+let height = data.readInt32LE(28)      // map 헤더 읽기
 
 
- // 바이너리가 실제 이미지랑 크기 안맞는 것들 예외처리해서 강제로 맞춰줌
-if(jsonData[j]['PCX파일'].slice(1) == 'Tts0___'){ 
-    tilesetWidth = 20
-    tilesetHeight = 21
-} else if(jsonData[j]['PCX파일'].slice(1) == 'Tiv1___' ){
-    tilesetWidth = 16
-    tilesetHeight = 11
-} else if(jsonData[j]['PCX파일'].slice(1) == 'Tiv0___' ){
-    tilesetWidth = 19
-    tilesetHeight = 16
+// .png로부터 이미지 크기 읽어서 가로 세로 몇 타일인지 계산
+let tilesetPngBuffer =  Buffer.from(fs.readFileSync('../../mapset/png/' + jsonData[j]['PCX파일'].slice(1) + 'P.png'))
+
+let tilesetWidth = tilesetPngBuffer.readInt32BE(16) / 64     // PNG 헤더 읽기
+let tilesetHeight = tilesetPngBuffer.readInt32BE(20) / 48     // PNG 헤더 읽기
+
+//let tilesetWidth = data.readInt32LE(32)   // map 대신 png에서 타일셋 크기 읽기로 바꿔서 주석처리함
+//let tilesetHeight = data.readInt32LE(36)   // map 대신 png에서 타일셋 크기 읽기로 바꿔서 주석처리함
+
+
+if(false){ // 실제 이미지(.png) 크기에서 타일셋 크기 뽑아오는 걸로 바꿔서 이제 밑의 예외 코드 사용 안함
+    // 바이너리가 실제 이미지랑 크기 안맞는 것들 예외처리해서 강제로 맞춰줌
+    if(jsonData[j]['PCX파일'].slice(1) == 'Tts0___'){ 
+        tilesetWidth = 20
+        tilesetHeight = 21
+    } else if(jsonData[j]['PCX파일'].slice(1) == 'Tiv1___' ){
+        tilesetWidth = 16
+        tilesetHeight = 11
+    } else if(jsonData[j]['PCX파일'].slice(1) == 'Tiv0___' ){
+        tilesetWidth = 19
+        tilesetHeight = 16
+    }
 }
 
 let dataP = []
@@ -158,7 +170,7 @@ let outputJson = {
     }
 console.log('map no.' + j + '  ../../mapset/tmj/' +j.toString().padStart(4, '0') + '_' + jsonData[j]['MAP파일'].slice(1) + '.tmj');
 
-//fs.appendFileSync('maplist.txt', j.toString().padStart(4, '0') + '_' + jsonData[j]['MAP파일'].slice(1) + '.tmj' + '\n')
+//fs.appendFileSync('maplist.txt', j.toString().padStart(4, '0') + '_' + jsonData[j]['MAP파일'].slice(1) + '.tmj' + '\n')  // maplist.txt 를 만들기 위해 사용한 코드
 
 //fs.appendFileSync('maplist.txt', jsonData[j]['맵 번호'].toString().padStart(4, '0') + '_' + jsonData[j]['지역명'] + '\n')
 }
