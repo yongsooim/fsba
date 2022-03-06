@@ -14,11 +14,11 @@ const byteLength = byteEnd - byteOffset
 
 let fileBuffer = fs.readFileSync(legacyExePath)
 
-let fileSub = fileBuffer.subarray(byteOffset, byteEnd)
-//let fileSub = fileBuffer.subarray(0, fileBuffer.length)
+//let fileSub = fileBuffer.subarray(byteOffset, byteEnd)
+let fileSub = fileBuffer.subarray(0, fileBuffer.length)
 
 let utf8Str = iconv.decode(fileSub,  'euc-kr');
 
-let outputStr = utf8Str.replace(';', ';\r\n')
+let outputStr = utf8Str.replaceAll('\0', '').replaceAll('', '').replaceAll('', '').replaceAll('', '').replaceAll('', '').replaceAll('', '')
 
 fs.writeFileSync('outputDialog.txt', outputStr)
