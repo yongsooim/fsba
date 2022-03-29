@@ -27,8 +27,8 @@ let j = 0
 
 for (j = 0; j < 500; j++) {
     let legacyMapPathP = '../legacy/mapset/map/' + jsonData[j]['MAP파일'].slice(1) + 'P.map'
-    let tilesetSourceP = '../../mapset/png/' + jsonData[j]['PCX파일'].slice(1) + 'P.png'
-    let tilesetSourceS = '../../mapset/png/' + jsonData[j]['PCX파일'].slice(1) + 'S.png'
+    let tilesetSourceP = '../../mapset/png/' + jsonData[j]['PCX파일'].slice(1).toLowerCase() + 'p.png'
+    let tilesetSourceS = '../../mapset/png/' + jsonData[j]['PCX파일'].slice(1).toLowerCase() + 's.png'
 
     let data
 
@@ -81,9 +81,9 @@ for (j = 0; j < 500; j++) {
             "id": 2, "name": "Z0 S Layer", "opacity": 1, "type": "tilelayer", "visible": true, "width": width, "height": height, "x": 0, "y": 0, "data": dataZ0S,
         }],
         "tilesets": [{
-            "firstgid": 1, "source": '../tsj/' + jsonData[j]['PCX파일'].slice(1) + 'P.tsj'
+            "firstgid": 1, "source": '../tsj/' + jsonData[j]['PCX파일'].slice(1).toLowerCase() + 'p.tsj'
         }, {
-            "firstgid": ((numberOfTilesInTileset) + 1), "source": '../tsj/' + jsonData[j]['PCX파일'].slice(1) + 'S.tsj'
+            "firstgid": ((numberOfTilesInTileset) + 1), "source": '../tsj/' + jsonData[j]['PCX파일'].slice(1).toLowerCase() + 's.tsj'
         }]
     }
 
@@ -101,22 +101,22 @@ for (j = 0; j < 500; j++) {
 
     let outputPTsj =
     {
-        "columns": tilesetWidth, "image": tilesetSourceP, "imageheight": tilesetHeight * 48, "imagewidth": tilesetWidth * 64, "margin": 0, "name": jsonData[j]['PCX파일'].slice(1) + 'P', "spacing": 0, "tilecount": numberOfTilesInTileset, "tiledversion": "1.8.1", "tileheight": 48, "tilewidth": 64, "type": "tileset", "version": "1.8"
+        "columns": tilesetWidth, "image": tilesetSourceP, "imageheight": tilesetHeight * 48, "imagewidth": tilesetWidth * 64, "margin": 0, "name": jsonData[j]['PCX파일'].slice(1).toLowerCase() + 'p', "spacing": 0, "tilecount": numberOfTilesInTileset, "tiledversion": "1.8.1", "tileheight": 48, "tilewidth": 64, "type": "tileset", "version": "1.8"
     }
 
     let outputSTsj = JSON.parse(JSON.stringify(outputPTsj))
-    outputSTsj.name = jsonData[j]['PCX파일'].slice(1) + 'S'
+    outputSTsj.name = jsonData[j]['PCX파일'].slice(1).toLowerCase() + 's'
     outputSTsj.image = tilesetSourceS
 
     let humanRead = false
     let pad = humanRead ? 4 : 0
 
     fs.writeFileSync('../../mapset/tmj/' + j.toString().padStart(4, '0') + '_' + jsonData[j]['MAP파일'].slice(1) + '.tmj', JSON.stringify(outputTmj, null, pad))
-    fs.writeFileSync('../../mapset/tsj/' + jsonData[j]['PCX파일'].slice(1) + 'P.tsj', JSON.stringify(outputPTsj, null, pad))
-    fs.writeFileSync('../../mapset/tsj/' + jsonData[j]['PCX파일'].slice(1) + 'S.tsj', JSON.stringify(outputSTsj, null, pad))
+    fs.writeFileSync('../../mapset/tsj/' + jsonData[j]['PCX파일'].slice(1).toLowerCase() + 'p.tsj', JSON.stringify(outputPTsj, null, pad))
+    fs.writeFileSync('../../mapset/tsj/' + jsonData[j]['PCX파일'].slice(1).toLowerCase() + 's.tsj', JSON.stringify(outputSTsj, null, pad))
 
 
-    console.log('map no.' + j + '  ../../mapset/tmj/' + j.toString().padStart(4, '0') + '_' + jsonData[j]['MAP파일'].slice(1) + '.tmj');
+    console.log('map no.' + j + '  ../../mapset/tmj/' + j.toString().padStart(4, '0').toLowerCase() + '_' + jsonData[j]['MAP파일'].slice(1).toLowerCase() + '.tmj');
 
     //fs.appendFileSync('maplist.txt', j.toString().padStart(4, '0') + '_' + jsonData[j]['MAP파일'].slice(1) + '.tmj' + '\n')  // maplist.txt 를 만들기 위해 사용한 코드
 
