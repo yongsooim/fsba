@@ -73,6 +73,18 @@ for (j = 0; j < 500; j++) {
         }
     }
 
+
+    let outputPTsj =
+    {
+        "columns": tilesetWidth, "image": tilesetSourceP, "imageheight": tilesetHeight * 48, "imagewidth": tilesetWidth * 64, "margin": 0, "name": jsonData[j]['PCX파일'].slice(1).toLowerCase() + 'p', "spacing": 0, "tilecount": numberOfTilesInTileset, "tiledversion": "1.8.1", "tileheight": 48, "tilewidth": 64, "type": "tileset", "version": "1.8"
+    }
+
+    let outputSTsj = JSON.parse(JSON.stringify(outputPTsj))
+    outputSTsj.name = jsonData[j]['PCX파일'].slice(1).toLowerCase() + 's'
+    outputSTsj.image = tilesetSourceS
+
+
+
     let outputTmj = {
         "compressionlevel": 0, "tilewidth": 64, "tileheight": 48, "orientation": "orthogonal", "renderorder": "right-down", "tiledversion": "1.8.1", "width": width, "height": height,
         "layers": [{
@@ -81,12 +93,15 @@ for (j = 0; j < 500; j++) {
             "id": 2, "name": "Z0 S Layer", "opacity": 1, "type": "tilelayer", "visible": true, "width": width, "height": height, "x": 0, "y": 0, "data": dataZ0S,
         }],
         "tilesets": [{
-            "firstgid": 1, "source": '../tsj/' + jsonData[j]['PCX파일'].slice(1).toLowerCase() + 'p.tsj'
+            "firstgid": 1, 
+            ...outputPTsj
         }, {
-            "firstgid": ((numberOfTilesInTileset) + 1), "source": '../tsj/' + jsonData[j]['PCX파일'].slice(1).toLowerCase() + 's.tsj'
+            "firstgid": ((numberOfTilesInTileset) + 1), 
+            ...outputSTsj
         }]
     }
 
+    
     //if (widthZ1 && !checkArrayEqualElements(dataZ1P) && !checkArrayEqualElements(dataZ1S)) { // 그래픽 데이터가 모두 투명인 Z1 레이어에 대해서 데이터 안넣어 봤는데, 전체 tmj 용량 300kb 정도 차이라 그냥 모두 데이터 넣음
     if (widthZ1 ) {
 
@@ -99,14 +114,6 @@ for (j = 0; j < 500; j++) {
         })
     }
 
-    let outputPTsj =
-    {
-        "columns": tilesetWidth, "image": tilesetSourceP, "imageheight": tilesetHeight * 48, "imagewidth": tilesetWidth * 64, "margin": 0, "name": jsonData[j]['PCX파일'].slice(1).toLowerCase() + 'p', "spacing": 0, "tilecount": numberOfTilesInTileset, "tiledversion": "1.8.1", "tileheight": 48, "tilewidth": 64, "type": "tileset", "version": "1.8"
-    }
-
-    let outputSTsj = JSON.parse(JSON.stringify(outputPTsj))
-    outputSTsj.name = jsonData[j]['PCX파일'].slice(1).toLowerCase() + 's'
-    outputSTsj.image = tilesetSourceS
 
     let humanRead = false
     let pad = humanRead ? 4 : 0
