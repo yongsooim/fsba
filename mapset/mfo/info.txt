@@ -1,0 +1,1 @@
+map name, pc pos, map anim, battle, jump
