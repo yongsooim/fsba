@@ -183,7 +183,7 @@ for (j = 0; j < 500; j++) {
     fs.writeFileSync('../../mapset/tsj/' + jsonData[j]['PCX파일'].slice(1).toLowerCase() + 'p.tsj', JSON.stringify(outputPTsj, null, pad))
     fs.writeFileSync('../../mapset/tsj/' + jsonData[j]['PCX파일'].slice(1).toLowerCase() + 's.tsj', JSON.stringify(outputSTsj, null, pad))
 
-    fs.writeFileSync('../../mapset/json/' + j.toString().padStart(4, '0') + '_' + jsonData[j]['MAP파일'].slice(1) + '.json', JSON.stringify({z0 : dataZ0move, z1 : dataZ1move}, null, pad))
+    fs.writeFileSync('../../mapset/json/' + j.toString().padStart(4, '0') + '_' + jsonData[j]['MAP파일'].slice(1).toLowerCase() + '.json', JSON.stringify({z0 : dataZ0move, z1 : dataZ1move}, null, pad))
 
     console.log('map no.' + j + '  ../../mapset/tmj/' + j.toString().padStart(4, '0').toLowerCase() + '_' + jsonData[j]['MAP파일'].slice(1).toLowerCase() + '.tmj');
 

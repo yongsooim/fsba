@@ -4,7 +4,7 @@ const { exec } = require("child_process");
 
 
 
-const testFolder = '../../ogg/se_event/';
+const testFolder = '../../mapset/json/';
 
 fs.readdir(testFolder, (err, files) => {
     files.forEach(file => {
