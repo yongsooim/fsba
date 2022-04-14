@@ -131,8 +131,8 @@ for (j = 0; j < 500; j++) {
     }
 
     if(j==22) {
-        fs.writeFileSync('move.txt', JSON.stringify(dataZ0move))
-        fs.writeFileSync('order.txt', JSON.stringify(dataZ0order))
+        fs.writeFileSync('outputMove.txt', JSON.stringify(dataZ0move))
+        fs.writeFileSync('outputOrder.txt', JSON.stringify(dataZ0order))
     }
 
     let outputPTsj =
@@ -182,8 +182,7 @@ for (j = 0; j < 500; j++) {
     fs.writeFileSync('../../mapset/tsj/' + jsonData[j]['PCX파일'].slice(1).toLowerCase() + 'p.tsj', JSON.stringify(outputPTsj, null, pad))
     fs.writeFileSync('../../mapset/tsj/' + jsonData[j]['PCX파일'].slice(1).toLowerCase() + 's.tsj', JSON.stringify(outputSTsj, null, pad))
 
-    //fs.writeFileSync('../../mapset/json/' + jsonData[j]['PCX파일'].slice(1).toLowerCase() + 'p.json', JSON.stringify(outputSTsj, null, pad))
-    //fs.writeFileSync('../../mapset/json/' + jsonData[j]['PCX파일'].slice(1).toLowerCase() + 's.json', JSON.stringify(outputSTsj, null, pad))
+    fs.writeFileSync('../../mapset/json/' + j.toString().padStart(4, '0') + '_' + jsonData[j]['MAP파일'].slice(1) + '.json', JSON.stringify({z0 : dataZ0move, z1 : dataZ1move}, null, pad))
 
     console.log('map no.' + j + '  ../../mapset/tmj/' + j.toString().padStart(4, '0').toLowerCase() + '_' + jsonData[j]['MAP파일'].slice(1).toLowerCase() + '.tmj');
 
