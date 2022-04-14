@@ -99,12 +99,12 @@ for (j = 0; j < 500; j++) {
 
 
         // todo : 타일 order 규칙 찾아야함
-        dataZ0S.push((data.readUInt32LE(offset + i) + 1 + numberOfTilesInTileset))
-        //if(data.readUInt16LE(z0moveOffset + i + 2) > 10){
-        //    dataZ0S.push((data.readUInt32LE(offset + i) + 1)) // 타일 order가 10 넘으면 S레이어에 P레이어 타일셋을 그린다
-        //} else {
-        //    dataZ0S.push((data.readUInt32LE(offset + i) + 1 + numberOfTilesInTileset)) // 타일 order가 0이면 S레이어 타일셋을 그린다
-        //}
+        //dataZ0S.push((data.readUInt32LE(offset + i) + 1 + numberOfTilesInTileset))
+        if(data.readUInt16LE(z0moveOffset + i + 2) == 19){
+            dataZ0S.push((data.readUInt32LE(offset + i) + 1)) // 타일 order가 19이면 S레이어에 P레이어 타일셋을 그린다
+        } else {
+            dataZ0S.push((data.readUInt32LE(offset + i) + 1 + numberOfTilesInTileset)) // 타일 order가 0이면 S레이어 타일셋을 그린다
+        }
 
         dataZ0move.push(data.readUInt16LE(z0moveOffset + i))
         dataZ0order.push(data.readUInt16LE(z0moveOffset + i + 2))
@@ -113,13 +113,14 @@ for (j = 0; j < 500; j++) {
             
             try{
                 dataZ1P.push((data.readUInt32LE(z1offset + i) + 1))  // 타일 번호 1부터 시작이라 1 더해줘야함
-                dataZ1S.push((data.readUInt32LE(z1offset + i) + 1 + numberOfTilesInTileset))
+                //dataZ1S.push((data.readUInt32LE(z1offset + i) + 1 + numberOfTilesInTileset))
 
-                //if(data.readUInt16LE(z1moveOffset + i + 2) > 10){   // 타일 order가 10 넘으면 S레이어에 P레이어 타일셋을 그린다
-                //    dataZ1S.push((data.readUInt32LE(z1offset + i) + 1))
-                //} else {
-                //    dataZ1S.push((data.readUInt32LE(z1offset + i) + 1 + numberOfTilesInTileset))
-                //}
+                if(data.readUInt16LE(z1moveOffset + i + 2) == 19){   // 타일 order가 10 넘으면 S레이어에 P레이어 타일셋을 그린다
+                    //dataZ1S.push((data.readUInt32LE(z1offset + i) + 1))
+                    dataZ1S.push((data.readUInt32LE(offset + i) + 1))
+                } else {
+                    dataZ1S.push((data.readUInt32LE(z1offset + i) + 1 + numberOfTilesInTileset))
+                }
 
                 dataZ1move.push(data.readUInt16LE(z1moveOffset + i))
                 dataZ1order.push(data.readUInt16LE(z1moveOffset + i + 2))
