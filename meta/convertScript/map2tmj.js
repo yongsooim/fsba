@@ -67,21 +67,22 @@ for (j = 0; j < 500; j++) {
     let dataZ1order = []
 
     let z0moveOffset 
+    let z0orderOffset 
 
     let z1offset 
     let z1moveOffset = 0
 
     if(j == 343){  // 343번 맵은 Z0과 Z1 의 크기가 다르다. 버그일까?
-        console.log(width)  // 44
-        console.log(widthZ1)  // 35
-        console.log(height)  // 35
-        console.log(heightZ1) //43 
+        //console.log(width)  // 44
+        //console.log(widthZ1)  // 35
+        //console.log(height)  // 35
+        //console.log(heightZ1) //43 
 
         //강제로 크기 지정
-        //width = 43
-        //height = 35
-        //widthZ1 = 43
-        //heightZ1 = 35
+        width = 43
+        height = 35
+        widthZ1 = 43
+        heightZ1 = 35
     }
 
     if(widthZ1) {
@@ -89,6 +90,8 @@ for (j = 0; j < 500; j++) {
         z1offset = z0moveOffset + width * height * 4
         //z1moveOffset = z1offset + width * height * 4
         z1moveOffset = z1offset + width * height * 4
+
+        z0orderOffset = z1moveOffset + width * height * 4
     } else {
         z0moveOffset = 480 + width * height * 4
     }
@@ -99,11 +102,25 @@ for (j = 0; j < 500; j++) {
 
 
         // todo : 타일 order 규칙 찾아야함
-        //dataZ0S.push((data.readUInt32LE(offset + i) + 1 + numberOfTilesInTileset))
-        if(data.readUInt16LE(z0moveOffset + i + 2) == 19){
-            dataZ0S.push((data.readUInt32LE(offset + i) + 1)) // 타일 order가 19이면 S레이어에 P레이어 타일셋을 그린다
+        //dataZ0S.push((data.readUInt32LE(offset + i) + 1001))
+        //if(data.readUInt16LE(z0moveOffset + i + 2) == 19){// 타일 order가 19이면 S레이어에 P레이어 타일셋을 그린다
+        //if(data.readUInt16LE(z0moveOffset + i + 2) >= 19){// 타일 order가 n 이상이면 S레이어에 P레이어 타일셋을 그린다
+        if(
+            
+            //data.readUInt16LE(z0moveOffset + i + 2) == 3 ||
+            //data.readUInt16LE(z0moveOffset + i + 2) == 7 ||
+            //data.readUInt16LE(z0moveOffset + i + 2) == 11 ||
+            //data.readUInt16LE(z0moveOffset + i + 2) == 13 ||
+            //data.readUInt16LE(z0moveOffset + i + 2) == 15 ||
+            data.readUInt16LE(z0moveOffset + i + 2) == 19 ||
+            false
+        
+        ){// 타일 order가 n 이상이면 S레이어에 P레이어 타일셋을 그린다
+            dataZ0S.push((data.readUInt32LE(offset + i) + 1)) 
+        } else if(data.readUInt16LE(z0moveOffset + i + 2) == 0){
+            dataZ0S.push(1001) 
         } else {
-            dataZ0S.push((data.readUInt32LE(offset + i) + 1 + numberOfTilesInTileset)) // 타일 order가 0이면 S레이어 타일셋을 그린다
+            dataZ0S.push((data.readUInt32LE(offset + i) + 1001)) // 타일 order가 0이면 S레이어 타일셋을 그린다
         }
 
         dataZ0move.push(data.readUInt16LE(z0moveOffset + i))
@@ -119,7 +136,7 @@ for (j = 0; j < 500; j++) {
                     //dataZ1S.push((data.readUInt32LE(z1offset + i) + 1))
                     dataZ1S.push((data.readUInt32LE(offset + i) + 1))
                 } else {
-                    dataZ1S.push((data.readUInt32LE(z1offset + i) + 1 + numberOfTilesInTileset))
+                    dataZ1S.push((data.readUInt32LE(z1offset + i) + 1001))
                 }
 
                 dataZ1move.push(data.readUInt16LE(z1moveOffset + i))
@@ -159,7 +176,7 @@ for (j = 0; j < 500; j++) {
             "firstgid": 1, 
             ...outputPTsj
         }, {
-            "firstgid": ((numberOfTilesInTileset) + 1), 
+            "firstgid": 1001, 
             ...outputSTsj
         }]
     }
@@ -185,7 +202,7 @@ for (j = 0; j < 500; j++) {
 
     fs.writeFileSync('../../mapset/json/' + j.toString().padStart(4, '0') + '_' + jsonData[j]['MAP파일'].slice(1).toLowerCase() + '.json', JSON.stringify({z0 : dataZ0move, z1 : dataZ1move}, null, pad))
 
-    console.log('map no.' + j + '  ../../mapset/tmj/' + j.toString().padStart(4, '0').toLowerCase() + '_' + jsonData[j]['MAP파일'].slice(1).toLowerCase() + '.tmj');
+    //console.log('map no.' + j + '  ../../mapset/tmj/' + j.toString().padStart(4, '0').toLowerCase() + '_' + jsonData[j]['MAP파일'].slice(1).toLowerCase() + '.tmj');
 
     //fs.appendFileSync('maplist.txt', j.toString().padStart(4, '0') + '_' + jsonData[j]['MAP파일'].slice(1) + '.tmj' + '\n')  // maplist.txt 를 만들기 위해 사용한 코드
 
