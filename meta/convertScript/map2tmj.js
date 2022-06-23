@@ -112,7 +112,7 @@ for (j = 0; j < 500; j++) {
             //data.readUInt16LE(z0moveOffset + i + 2) == 11 ||
             //data.readUInt16LE(z0moveOffset + i + 2) == 13 ||
             //data.readUInt16LE(z0moveOffset + i + 2) == 15 ||
-            data.readUInt16LE(z0moveOffset + i + 2) == 19 ||
+            //data.readUInt16LE(z0moveOffset + i + 2) == 19 ||
             false
         
         ){// 타일 order가 n 이상이면 S레이어에 P레이어 타일셋을 그린다

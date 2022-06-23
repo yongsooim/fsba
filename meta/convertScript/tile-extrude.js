@@ -15,5 +15,6 @@ function *walkSync(dir) {
 
 for (const filePath of walkSync('../../mapset/png')) {
   console.log(filePath);
+  let filePathOut = filePath + '_'
   exec(`tile-extruder --tileWidth 64 --tileHeight 48 --input ${filePath} --output ${filePath}`)
 }
