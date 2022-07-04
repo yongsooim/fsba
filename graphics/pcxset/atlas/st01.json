@@ -1,0 +1,94 @@
+{
+  "frames": [
+      {
+          "filename": "load0",
+          "frame": {
+            "x": 130, "y": 102, "w": 128, "h": 51
+          },
+          "anchor": {
+              "x": 0,
+              "y": 0
+          }
+      },
+      {
+          "filename": "load1",
+          "frame": {
+            "x": 260, "y": 102, "w": 128, "h": 51
+          },
+          "anchor": {
+              "x": 0,
+              "y": 0
+          }
+      },
+      {
+        "filename": "load2",
+        "frame": {
+          "x": 390, "y": 102, "w": 128, "h": 51
+        },
+        "anchor": {
+            "x": 0,
+            "y": 0
+        }
+    },
+    {
+        "filename": "start0",
+        "frame": {
+          "x": 150, "y": 51, "w": 150, "h": 51
+        },
+        "anchor": {
+            "x": 0,
+            "y": 0
+        }
+    },
+    {
+        "filename": "start1",
+        "frame": {
+          "x": 298, "y": 51, "w": 150, "h": 51
+        },
+        "anchor": {
+            "x": 0,
+            "y": 0
+        }
+    },
+    {
+      "filename": "start2",
+      "frame": {
+        "x": 447, "y": 51, "w": 150, "h": 51
+      },
+      "anchor": {
+          "x": 0,
+          "y": 0
+      }
+  },
+  {
+      "filename": "exit0",
+      "frame": {
+        "x": 112, "y": 0, "w": 112, "h": 51
+      },
+      "anchor": {
+          "x": 0,
+          "y": 0
+      }
+  },
+  {
+      "filename": "exit1",
+      "frame": {
+        "x": 224, "y": 0, "w": 112, "h": 51
+      },
+      "anchor": {
+          "x": 0,
+          "y": 0
+      }
+  },
+  {
+    "filename": "exit2",
+    "frame": {
+      "x": 336, "y": 0, "w": 112, "h": 51
+    },
+    "anchor": {
+        "x": 0,
+        "y": 0
+    }
+}
+  ]
+}
