@@ -19,6 +19,11 @@ let fileSub = fileBuffer.subarray(0, fileBuffer.length)
 
 let utf8Str = iconv.decode(fileSub,  'euc-kr');
 
-let outputStr = utf8Str.replaceAll('\0', '').replaceAll('', '').replaceAll('', '').replaceAll('', '').replaceAll('', '').replaceAll('', '')
+let outputStr = utf8Str.replace(/[\0\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\�뛳떂뜽淺뫜븷뀪]/g, '')
+outputStr = outputStr.replace('\n ', '\n')
+outputStr = outputStr.replace('\n\n', '\n')
+outputStr = outputStr.replace('\n\n', '\n')
+outputStr = outputStr.replace('\n\n', '\n')
+outputStr = outputStr.replace('\n\n', '\n')
 
 fs.writeFileSync('outputDialog.txt', outputStr)
