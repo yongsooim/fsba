@@ -29,6 +29,8 @@ for (j = 0; j < 500; j++) {
     let legacyMapPathP = '../legacy/mapset/map/' + jsonData[j]['MAP파일'].slice(1) + 'P.map'
     let tilesetSourceP = '../../mapset/png/' + jsonData[j]['PCX파일'].slice(1).toLowerCase() + 'p.png'
     let tilesetSourceS = '../../mapset/png/' + jsonData[j]['PCX파일'].slice(1).toLowerCase() + 's.png'
+    let collisionDataPath = '../../mapset/json/' + jsonData[j]['MAP파일'].slice(1).toLowerCase() + '.json'
+
 
     let data
 
@@ -72,7 +74,7 @@ for (j = 0; j < 500; j++) {
     let z1offset 
     let z1moveOffset = 0
 
-    if(j == 343){  // 343번 맵은 Z0과 Z1 의 크기가 다르다. 버그일까?
+    if(j == 343){  // 343번 맵은 Z0과 Z1 의 크기가 다르다. 버그인 것 같다
         //console.log(width)  // 44
         //console.log(widthZ1)  // 35
         //console.log(height)  // 35
@@ -158,9 +160,15 @@ for (j = 0; j < 500; j++) {
         "columns": tilesetWidth, "image": tilesetSourceP, "imageheight": tilesetHeight * 48, "imagewidth": tilesetWidth * 64, "margin": 0, "name": jsonData[j]['PCX파일'].slice(1).toLowerCase() + 'p', "spacing": 0, "tilecount": numberOfTilesInTileset, "tiledversion": "1.8.1", "tileheight": 48, "tilewidth": 64, "type": "tileset", "version": "1.8"
     }
 
+
     let outputSTsj = JSON.parse(JSON.stringify(outputPTsj))
     outputSTsj.name = jsonData[j]['PCX파일'].slice(1).toLowerCase() + 's'
     outputSTsj.image = tilesetSourceS
+
+    let moveTileset = 
+    {
+        "columns": 16, "image": '../../mapset/png/moveTileset.png', "imageheight": 16 * 48, "imagewidth": 16 * 64, "margin": 0, "name": 'moveTileset', "spacing": 0, "tilecount": 256, "tiledversion": "1.8.1", "tileheight": 48, "tilewidth": 64, "type": "tileset", "version": "1.8"
+    }
 
     let outputPJson = JSON.parse(JSON.stringify(dataZ0move))
     let outputSJson = JSON.parse(JSON.stringify(dataZ0move))
@@ -171,13 +179,20 @@ for (j = 0; j < 500; j++) {
             "id": 1, "name": "Z0 P Layer", "opacity": 1, "type": "tilelayer", "visible": true, "width": width, "height": height, "x": 0, "y": 0, "data": dataZ0P,
         }, {
             "id": 2, "name": "Z0 S Layer", "opacity": 1, "type": "tilelayer", "visible": true, "width": width, "height": height, "x": 0, "y": 0, "data": dataZ0S,
-        }],
+        },
+        {
+            "id": 5, "name": "Z0 Move", "opacity": 0.5, "type": "tilelayer", "visible": false, "width": width, "height": height, "x": 0, "y": 0, "data": dataZ0move.map(x => x + 2001),
+        }
+        ],
         "tilesets": [{
             "firstgid": 1, 
             ...outputPTsj
         }, {
             "firstgid": 1001, 
             ...outputSTsj
+        }, {
+            "firstgid": 2001, 
+            ...moveTileset
         }]
     }
     
@@ -191,6 +206,23 @@ for (j = 0; j < 500; j++) {
         outputTmj.layers.push({
             "id": 4, "name": "Z1 S Layer", "opacity": 1, "type": "tilelayer", "visible": true, "width": width, "height": height, "x": 0, "y": 0, "data": dataZ1S,
         })
+
+        outputTmj.layers.push({
+            "id": 6, "name": "Z1 Move", "opacity": 0.5, "type": "tilelayer", "visible": false, "width": width, "height": height, "x": 0, "y": 0, "data": dataZ1move.map(x => x + 2001),
+        })
+
+        outputTmj.tilesets.push(
+            {
+                "firstgid": 1, 
+                ...outputPTsj
+            }, {
+                "firstgid": 1001, 
+                ...outputSTsj
+            }, {
+                "firstgid": 2001, 
+                ...moveTileset
+            }
+        )
     }
 
     let humanRead = false
