@@ -177,8 +177,22 @@ for (j = 0; j < 500; j++) {
         "compressionlevel": 0, "tilewidth": 64, "tileheight": 48, "orientation": "orthogonal", "renderorder": "right-down", "tiledversion": "1.8.1", "width": width, "height": height,
         "layers": [{
             "id": 1, "name": "Z0 P Layer", "opacity": 1, "type": "tilelayer", "visible": true, "width": width, "height": height, "x": 0, "y": 0, "data": dataZ0P,
+            "properties":[
+                {
+                 "name":"ge_charLayer",
+                 "type":"string",
+                 "value":"Z0 P Layer"
+                }],
+
         }, {
             "id": 2, "name": "Z0 S Layer", "opacity": 1, "type": "tilelayer", "visible": true, "width": width, "height": height, "x": 0, "y": 0, "data": dataZ0S,
+            "properties":[
+                {
+                 "name":"ge_charLayer",
+                 "type":"string",
+                 "value":"Z0 S Layer"
+                }],
+
         },
         {
             "id": 5, "name": "Z0 Move", "opacity": 0.5, "type": "tilelayer", "visible": false, "width": width, "height": height, "x": 0, "y": 0, "data": dataZ0move.map(x => x + 2001),
@@ -201,10 +215,23 @@ for (j = 0; j < 500; j++) {
 
         outputTmj.layers.push({
             "id": 3, "name": "Z1 P Layer", "opacity": 1, "type": "tilelayer", "visible": true, "width": width, "height": height, "x": 0, "y": 0, "data": dataZ1P,
+            "properties":[
+                {
+                 "name":"ge_charLayer",
+                 "type":"string",
+                 "value":"Z1 P Layer"
+                }],
+
         })
 
         outputTmj.layers.push({
             "id": 4, "name": "Z1 S Layer", "opacity": 1, "type": "tilelayer", "visible": true, "width": width, "height": height, "x": 0, "y": 0, "data": dataZ1S,
+                "properties":[
+                {
+                 "name":"ge_charLayer",
+                 "type":"string",
+                 "value":"Z1 S Layer"
+                }],
         })
 
         outputTmj.layers.push({
